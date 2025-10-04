@@ -21,10 +21,10 @@ require('lazy').setup({
 	require 'plugins.lualine',
 	require 'plugins.treesitter',
 	require 'plugins.telescope',
-  require 'lsp.servers',
-  require 'plugins.autocomplete',
+  --require 'lsp.servers',
+  --require 'plugins.autocomplete',
   require 'plugins.indent-line',
-  require 'plugins.gitsigns',
+  --require 'plugins.gitsigns',
   require 'plugins.misc',
   require 'plugins.surround',
 })
