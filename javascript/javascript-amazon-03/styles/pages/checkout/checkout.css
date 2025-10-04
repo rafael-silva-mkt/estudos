@@ -157,6 +157,22 @@
   margin-bottom: 3px;
 }
 
+.container-input{
+  display: none;
+}
+
+.hidden{
+  display: none;
+}
+
+.show{
+  display: inline-block;
+}
+
+.input-quantity{
+  width: 40px;
+}
+
 .delivery-option-price {
   color: rgb(120, 120, 120);
   font-size: 15px;
