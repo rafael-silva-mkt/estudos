@@ -32,5 +32,5 @@ function updateCartQuantity() {
 
 //Exports
 
-export { addToCart, cart, updateCartQuantity };
+export { addToCart, saveCartLocal, cart, updateCartQuantity };
 

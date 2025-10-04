@@ -1,12 +1,15 @@
 // Imports
-import { cart } from '../data/cart.js';
+import { cart, saveCartLocal, updateCartQuantity } from '../data/cart.js';
 import { products } from '../data/products.js';
 
 // Variables
 const htmlContainer = document.querySelector('.js-order-summary');
+const checkoutQuantity = document.querySelector('.js-checkout-quantity');
 let pageHtml = '';
 
 // Generating HTML
+
+checkoutQuantity.innerHTML = `${updateCartQuantity()} items`;
 
 cart.forEach(cartItem => {
 
@@ -38,7 +41,7 @@ cart.forEach(cartItem => {
             </div>
             <div class="product-quantity">
               <span>
-                Quantity: <span class="quantity-label">${quantity}</span>
+                Quantity: <span class="quantity-label js-quantity-label">${quantity}</span>
               </span>
               <span class="js-update-quantity update-quantity-link link-primary" 
               data-type="update">
@@ -137,6 +140,7 @@ function handleButton(container, button) {
   const upButton = container.querySelector('.js-update-quantity');
   const inputContainer = container.querySelector('.js-container-input');
   const {id} = container.dataset;
+  const item = cart.find(cartItem => id === cartItem.id); 
 
   if(button === 'update') {
 
@@ -149,16 +153,12 @@ function handleButton(container, button) {
     let quantity = inputElement.value;
     quantity = Number(quantity);
 
-      if(quantity === 0) {
-        return;
-      }
+    if(quantity === 0) {
+      return;
+    }
 
-      const item = cart.find(cartItem => id === cartItem.id); 
-
-      if(item) {
-        item.quantity = quantity;
-           
-      }
+    item.quantity = quantity;
+    document.querySelector('.js-quantity-label').innerHTML = item.quantity;
 
     inputElement.value = '';
     upButton.classList.remove('hidden');
@@ -166,6 +166,12 @@ function handleButton(container, button) {
 
   } else if (button === 'delete') {
 
-  }
+    cart.splice(cart.indexOf(item), 1);
 
+    container.remove();
+
+  }
+  checkoutQuantity.innerHTML = `${updateCartQuantity()} items`;
+  saveCartLocal();
 }
+
