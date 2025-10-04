@@ -209,3 +209,19 @@
   margin-top: 11px;
   margin-bottom: 15px;
 }
+
+.js-input-container{
+  display: none;
+}
+
+.hidden{
+  display: none;
+}
+
+.show{
+  display: inline-block;
+}
+
+.js-input-quantity{
+  width: 40px;
+}
