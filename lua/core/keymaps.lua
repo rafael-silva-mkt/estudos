@@ -13,6 +13,9 @@ local opts = { noremap = true, silent = true }
 
 vim.keymap.set('i', '<F2>', '<End>', { noremap = true, silent = true })
 
+vim.keymap.set("n", "<leader>se", 'o//=======================================//<Esc>', { desc = "Inserir separador" })
+vim.keymap.set("n", "<leader>sE", 'O//=======================================//<Esc>', { desc = "Inserir separador" })
+
 vim.keymap.set('n', 'x', '"_x', opts)
 
 vim.keymap.set('n', '<C-d>', '<C-d>zz', opts)
@@ -45,11 +48,10 @@ vim.keymap.set('n', '<C-l>', ':wincmd l<CR>', opts)
 
 -- Press jk fast to exit insert mode
 vim.keymap.set('i', 'jk', '<ESC>', opts)
-vim.keymap.set('i', 'kj', '<ESC>', opts)
 
 -- Move text up and down
-vim.keymap.set('v', '<A-j>', ':m .+1<CR>==', opts)
 vim.keymap.set('v', '<A-k>', ':m .-2<CR>==', opts)
+vim.keymap.set('v', '<A-j>', ':m .+1<CR>==', opts)
 
 -- Keep last yanked when pasting
 vim.keymap.set('v', 'p', '"_dP', opts)
